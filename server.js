@@ -19,6 +19,8 @@ app.get("/", async function (request, reply) {
   // Set up Chrome options
   const chromeOptions = new chrome.Options();
   chromeOptions.addArguments("--disable-web-security");
+  chromeOptions.addArguments("--no-sandbox");
+  chromeOptions.addArguments("--disable-dev-shm-usage");
 
   // Launch the browser
   const browser = await new Builder()
