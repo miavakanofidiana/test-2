@@ -1,5 +1,5 @@
 const express = require("express");
-const chromium = require("sparticuz/chromium-min");
+const chromium = require("@sparticuz/chromium-min");
 const puppeteer = require("puppeteer-core")
 
 const app = express()
