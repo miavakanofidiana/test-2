@@ -1,6 +1,5 @@
 const express = require("express");
-const chromium = require("sparticuz/chromium-min");
-const puppeteer = require("puppeteer-core")
+const chromium = require("chrome-aws-lambda");
 
 const app = express()
 
@@ -20,14 +19,12 @@ app.get("/", async function (request, reply) {
   /*const browser = await puppeteer.connect({
 	browserWSEndpoint: `wss://chrome.browserless.io?token=98036bb5-d4bd-4519-8dd4-dcfe166fbbc3`,
   })*/
-  const browser = await puppeteer.launch({
+  const browser = await chromium.puppeteer.launch({
     args: [...chromium.args, "--disable-web-security"],
     defaultViewport: chromium.defaultViewport,
-    executablePath: await chromium.executablePath(
-        "https://github.com/Sparticuz/chromium/releases/download/v110.0.1/chromium-v110.0.1-pack.tar"
-      ),
+    executablePath: await chromium.executablePath,
     ignoreHTTPSErrors: true,
-    headless: true, // Run headless
+    headless: "new", // Run headless
     timeout: 0
   });
   const page = await browser.newPage();
