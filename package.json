@@ -4,8 +4,7 @@
   "description": "A simple Node app built on fastify, instantly up and running. Built to be remixed on Glitch.com.",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
-    "postinstall": "npm audit fix --force & node node_modules/puppeteer/install.mjs"
+    "start": "node server.js"
   },
   "engines": {
     "node": ">=16.3.2"
